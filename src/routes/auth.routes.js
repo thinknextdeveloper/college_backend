@@ -11,5 +11,9 @@ router.post('/register', c.register);
 router.post('/login', c.login);
 router.post('/refresh', c.refresh);
 router.post('/logout', c.logout);
+router.post('/change-password', c.changePassword);
+router.get('/seed-student', c.seedTestStudent);
+router.post('/seed-student', c.seedTestStudent);
+router.get('/hash', c.generateHash);
 
 module.exports = router;
