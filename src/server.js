@@ -13,9 +13,9 @@ app.use(express.json({ limit: '1mb' }));
 app.use(cookieParser());
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
-app.use('/api/auth', require('./routes/auth.routes'));
-app.use('/api/lookup', require('./routes/lookup.routes'));
-
+app.use('/api/auth', require('./routes/authroutes.js'));
+app.use('/api/lookup', require('./routes/lookuproutes.js'));
+app.use('/api/student', require('./routes/student.routes'));
 app.use((req, res) => res.status(404).json({ message: 'Not found' }));
 app.use(errorHandler);
 

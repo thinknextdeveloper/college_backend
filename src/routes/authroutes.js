@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const rateLimit = require('express-rate-limit');
-const c = require('../controllers/auth.controller');
-
+const c = require('../controllers/authcontroller');
+const { authenticate } = require('../middleware/auth');
 const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 50, standardHeaders: true, legacyHeaders: false });
 router.use(limiter);
 
@@ -11,5 +11,6 @@ router.post('/register', c.register);
 router.post('/login', c.login);
 router.post('/refresh', c.refresh);
 router.post('/logout', c.logout);
+router.post('/change-password', authenticate, c.changePassword);
 
 module.exports = router;

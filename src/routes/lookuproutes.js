@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const c = require('../controllers/lookup.controller');
+const c = require('../controllers/lookupcontroller');
 
 router.get('/program-types', c.programTypes);
 router.get('/programs', c.programs);
